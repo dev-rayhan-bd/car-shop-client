@@ -76,7 +76,7 @@ import {
       children: [
         {
           index:true,
-          element: <ProtectedRoute role="admin" > <DashBoard /></ProtectedRoute>
+          element:  <DashBoard />
         },
         {
           path: "createProduct",

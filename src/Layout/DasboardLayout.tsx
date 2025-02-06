@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 import { Link, Outlet } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
 
 
 const DashboardLayout = () => {
@@ -14,7 +15,8 @@ const DashboardLayout = () => {
   const user = useAppSelector(selectCurrentUser)
 
   return (
-    <div className="flex h-screen text-white">
+  <ProtectedRoute role={user?.role}>
+  <div className="flex h-screen text-white">
           <Helmet> <title>NextGen Cars | Dashboard</title></Helmet>
       {/* Sidebar  */}
       <aside
@@ -148,6 +150,7 @@ const DashboardLayout = () => {
         </main>
       </div>
     </div>
+  </ProtectedRoute>
   );
 };
 
